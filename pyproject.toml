@@ -1,0 +1,58 @@
+[project]
+name = "passwordstore-reader"
+version = "0.1.0"
+description = "Simple python library to access an existing pass password store in your scripts."
+readme = "README.md"
+authors = [
+    { name = "Oliver Stolpe", email = "oliver.stolpe@charite.de" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX",
+    "Topic :: Security :: Cryptography",
+    "Typing :: Typed",
+]
+dependencies = [
+    "python-gnupg>=0.5.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/bihealth/passwordstore-reader"
+Issues = "https://github.com/bihealth/passwordstore-reader/issues"
+
+[dependency-groups]
+dev = [
+    "pyrefly>=1.0.0",
+    "pytest",
+    "pytest-cov>=7.1.0",
+    "ruff",
+]
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "E",  # pycodestyle errors
+  "F",  # pyflakes
+  "I",  # isort
+]
+
+[tool.pyrefly]
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.5,<0.10.0"]
+build-backend = "uv_build"
